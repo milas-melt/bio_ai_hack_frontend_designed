@@ -46,7 +46,7 @@ export default function Settings() {
       <section className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
         <div className="space-y-1">
           <Subheading>Organization Email</Subheading>
-          <Text>This is how customers can contact you for support.</Text>
+          <Text>This is how patients can contact you for support.</Text>
         </div>
         <div className="space-y-4">
           <Input type="email" aria-label="Organization Email" name="email" defaultValue="info@example.com" />

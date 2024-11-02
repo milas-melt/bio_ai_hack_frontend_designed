@@ -49,7 +49,7 @@ export default async function Home() {
           <TableRow>
             <TableHeader>Order number</TableHeader>
             <TableHeader>Purchase date</TableHeader>
-            <TableHeader>Customer</TableHeader>
+            <TableHeader>Patient</TableHeader>
             <TableHeader>Event</TableHeader>
             <TableHeader className="text-right">Amount</TableHeader>
           </TableRow>
@@ -59,7 +59,7 @@ export default async function Home() {
             <TableRow key={order.id} href={order.url} title={`Order #${order.id}`}>
               <TableCell>{order.id}</TableCell>
               <TableCell className="text-zinc-500">{order.date}</TableCell>
-              <TableCell>{order.customer.name}</TableCell>
+              <TableCell>{order.patient.name}</TableCell>
               <TableCell>
                 <div className="flex items-center gap-2">
                   <Avatar src={order.event.thumbUrl} className="size-6" />

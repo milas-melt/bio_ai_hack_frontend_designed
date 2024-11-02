@@ -26,7 +26,7 @@ export async function getOrders() {
           expiry: '01 / 2025',
         },
       },
-      customer: {
+      patient: {
         name: 'Leslie Alexander',
         email: 'leslie.alexander@example.com',
         address: '123 Main St. Toronto, ON',
@@ -53,7 +53,7 @@ export async function getOrders() {
           expiry: '06 / 2024',
         },
       },
-      customer: {
+      patient: {
         name: 'Michael Foster',
         email: 'michael.foster@example.com',
         address: '357 Bridge St. New York, NY',
@@ -80,7 +80,7 @@ export async function getOrders() {
           expiry: '12 / 2026',
         },
       },
-      customer: {
+      patient: {
         name: 'Dries Vincent',
         email: 'dries.vincent@example.com',
         address: '456 Elm St. Vancouver, BC',
@@ -107,7 +107,7 @@ export async function getOrders() {
           expiry: '06 / 2024',
         },
       },
-      customer: {
+      patient: {
         name: 'Lindsay Walton',
         email: 'lindsay.walton@example.com',
         address: '789 Oak St. Montreal, QC',
@@ -134,7 +134,7 @@ export async function getOrders() {
           expiry: '01 / 2025',
         },
       },
-      customer: {
+      patient: {
         name: 'Courtney Henry',
         email: 'courtney.henry@example.com',
         address: '321 Pine St. Calgary, AB',
@@ -161,7 +161,7 @@ export async function getOrders() {
           expiry: '08 / 2024',
         },
       },
-      customer: {
+      patient: {
         name: 'Tom Cook',
         email: 'tom.cook@example.com',
         address: '741 Lake St. Miami, FL',
@@ -188,7 +188,7 @@ export async function getOrders() {
           expiry: '06 / 2024',
         },
       },
-      customer: {
+      patient: {
         name: 'Whitney Francis',
         email: 'whitney.francis@example.com',
         address: '654 Maple St. Ottawa, ON',
@@ -215,7 +215,7 @@ export async function getOrders() {
           expiry: '08 / 2024',
         },
       },
-      customer: {
+      patient: {
         name: 'Leonard Krasner',
         email: 'leonard.krasner@example.com',
         address: '987 Birch St. Winnipeg, MB',
@@ -242,7 +242,7 @@ export async function getOrders() {
           expiry: '11 / 2026',
         },
       },
-      customer: {
+      patient: {
         name: 'Floyd Miles',
         email: 'floyd.miles@example.com',
         address: '147 Cedar St. Quebec City, QC',
@@ -269,7 +269,7 @@ export async function getOrders() {
           expiry: '06 / 2025',
         },
       },
-      customer: {
+      patient: {
         name: 'Emily Selman',
         email: 'emily.selman@example.com',
         address: '258 Willow St. Halifax, NS',
@@ -296,7 +296,7 @@ export async function getOrders() {
           expiry: '06 / 2024',
         },
       },
-      customer: {
+      patient: {
         name: 'Kristin Watson',
         email: 'kristin.watson@example.com',
         address: '369 Spruce St. Edmonton, AB',
@@ -323,7 +323,7 @@ export async function getOrders() {
           expiry: '08 / 2024',
         },
       },
-      customer: {
+      patient: {
         name: 'Emma Dorsey',
         email: 'emma.dorsey@example.com',
         address: '159 Park St. Chicago, IL',
@@ -350,7 +350,7 @@ export async function getOrders() {
           expiry: '01 / 2024',
         },
       },
-      customer: {
+      patient: {
         name: 'Alicia Bell',
         email: 'alicia.bell@example.com',
         address: '741 Laurel St. Regina, SK',
@@ -377,7 +377,7 @@ export async function getOrders() {
           expiry: '06 / 2025',
         },
       },
-      customer: {
+      patient: {
         name: 'Jenny Wilson',
         email: 'jenny.wilson@example.com',
         address: '852 Ash St. Saskatoon, SK',
@@ -404,7 +404,7 @@ export async function getOrders() {
           expiry: '06 / 2024',
         },
       },
-      customer: {
+      patient: {
         name: 'Anna Roberts',
         email: 'anna.roberts@example.com',
         address: '852 Hill St. Houston, TX',
@@ -431,7 +431,7 @@ export async function getOrders() {
           expiry: '06 / 2024',
         },
       },
-      customer: {
+      patient: {
         name: 'Benjamin Russel',
         email: 'benjamin.russel@example.com',
         address: '963 Cherry St. Victoria, BC',
@@ -458,7 +458,7 @@ export async function getOrders() {
           expiry: '01 / 2026',
         },
       },
-      customer: {
+      patient: {
         name: 'Jeffrey Webb',
         email: 'jeffrey.webb@example.com',
         address: '654 Ocean St. Hamilton, ON',
@@ -485,7 +485,7 @@ export async function getOrders() {
           expiry: '06 / 2024',
         },
       },
-      customer: {
+      patient: {
         name: 'Kathryn Murphy',
         email: 'kathryn.murphy@example.com',
         address: '357 River St. London, ON',
@@ -512,7 +512,7 @@ export async function getOrders() {
           expiry: '06 / 2024',
         },
       },
-      customer: {
+      patient: {
         name: 'Lawrence Hunter',
         email: 'lawrence.hunter@example.com',
         address: '159 Lake St. Mississauga, ON',
@@ -539,7 +539,7 @@ export async function getOrders() {
           expiry: '06 / 2025',
         },
       },
-      customer: {
+      patient: {
         name: 'Yvette Armstrong',
         email: 'yvette.armstrong@example.com',
         address: '852 Forest St. Markham, ON',
@@ -566,7 +566,7 @@ export async function getOrders() {
           expiry: '12 / 2024',
         },
       },
-      customer: {
+      patient: {
         name: 'Angela Fisher',
         email: 'angela.fisher@example.com',
         address: '741 Hill St. Brampton, ON',
@@ -593,7 +593,7 @@ export async function getOrders() {
           expiry: '06 / 2024',
         },
       },
-      customer: {
+      patient: {
         name: 'Blake Reid',
         email: 'blake.reid@example.com',
         address: '369 Valley St. Oshawa, ON',
@@ -620,7 +620,7 @@ export async function getOrders() {
           expiry: '11 / 2026',
         },
       },
-      customer: {
+      patient: {
         name: 'Hector Gibbons',
         email: 'hector.gibbons@example.com',
         address: '258 Ridge St. Richmond Hill, ON',
@@ -647,7 +647,7 @@ export async function getOrders() {
           expiry: '12 / 2025',
         },
       },
-      customer: {
+      patient: {
         name: 'Fabricio Mendes',
         email: 'fabricio.mendes@example.com',
         address: '147 Park St. Vaughan, ON',
@@ -674,7 +674,7 @@ export async function getOrders() {
           expiry: '06 / 2024',
         },
       },
-      customer: {
+      patient: {
         name: 'Jillian Steward',
         email: 'jillian.steward@example.com',
         address: '987 Grove St. Windsor, ON',
@@ -701,7 +701,7 @@ export async function getOrders() {
           expiry: '08 / 2025',
         },
       },
-      customer: {
+      patient: {
         name: 'Chelsea Hagon',
         email: 'chelsea.hagon@example.com',
         address: '654 Court St. Los Angeles, CA',

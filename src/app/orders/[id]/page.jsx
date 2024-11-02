@@ -70,8 +70,8 @@ export default async function Order({ params }) {
         <Subheading>Summary</Subheading>
         <Divider className="mt-4" />
         <DescriptionList>
-          <DescriptionTerm>Customer</DescriptionTerm>
-          <DescriptionDetails>{order.customer.name}</DescriptionDetails>
+          <DescriptionTerm>Patient</DescriptionTerm>
+          <DescriptionDetails>{order.patient.name}</DescriptionDetails>
           <DescriptionTerm>Event</DescriptionTerm>
           <DescriptionDetails>
             <Link href={order.event.url} className="flex items-center gap-2">
@@ -104,16 +104,16 @@ export default async function Order({ params }) {
           <DescriptionTerm>Card expiry</DescriptionTerm>
           <DescriptionDetails>{order.payment.card.expiry}</DescriptionDetails>
           <DescriptionTerm>Owner</DescriptionTerm>
-          <DescriptionDetails>{order.customer.name}</DescriptionDetails>
+          <DescriptionDetails>{order.patient.name}</DescriptionDetails>
           <DescriptionTerm>Email address</DescriptionTerm>
-          <DescriptionDetails>{order.customer.email}</DescriptionDetails>
+          <DescriptionDetails>{order.patient.email}</DescriptionDetails>
           <DescriptionTerm>Address</DescriptionTerm>
-          <DescriptionDetails>{order.customer.address}</DescriptionDetails>
+          <DescriptionDetails>{order.patient.address}</DescriptionDetails>
           <DescriptionTerm>Country</DescriptionTerm>
           <DescriptionDetails>
             <span className="inline-flex gap-3">
-              <img src={order.customer.countryFlagUrl} alt={order.customer.country} />
-              {order.customer.country}
+              <img src={order.patient.countryFlagUrl} alt={order.patient.country} />
+              {order.patient.country}
             </span>
           </DescriptionDetails>
           <DescriptionTerm>CVC</DescriptionTerm>
