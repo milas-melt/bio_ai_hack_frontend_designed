@@ -25,7 +25,7 @@ export default function Settings() {
           <Text>This will be displayed on your public profile.</Text>
         </div>
         <div>
-          <Input aria-label="Organization Name" name="name" defaultValue="Catalyst" />
+          <Input aria-label="Organization Name" name="name" defaultValue="Addenbrooke's Hospital" />
         </div>
       </section>
 
@@ -75,7 +75,8 @@ export default function Settings() {
           <Text>The currency that your organization will be collecting.</Text>
         </div>
         <div>
-          <Select aria-label="Currency" name="currency" defaultValue="cad">
+          <Select aria-label="Currency" name="currency" defaultValue="gbp">
+            <option value="gbp">GBP - British Pound</option>
             <option value="cad">CAD - Canadian Dollar</option>
             <option value="usd">USD - United States Dollar</option>
           </Select>

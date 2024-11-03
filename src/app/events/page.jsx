@@ -10,7 +10,7 @@ import { getEvents } from '@/data'
 import { EllipsisVerticalIcon, MagnifyingGlassIcon } from '@heroicons/react/16/solid'
 
 export const metadata = {
-  title: 'Events',
+  title: 'Drugs',
 }
 
 export default async function Events() {
@@ -20,7 +20,7 @@ export default async function Events() {
     <>
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="max-sm:w-full sm:flex-1">
-          <Heading>Events</Heading>
+          <Heading>Drugs of Interest</Heading>
           <div className="mt-4 flex max-w-xl gap-4">
             <div className="flex-1">
               <InputGroup>
@@ -37,7 +37,7 @@ export default async function Events() {
             </div>
           </div>
         </div>
-        <Button>Create event</Button>
+        <Button>Add drug of interest</Button>
       </div>
       <ul className="mt-10">
         {events.map((event, index) => (

@@ -15,11 +15,11 @@ export function Address() {
         aria-label="Street Address"
         name="address"
         placeholder="Street Address"
-        defaultValue="147 Catalyst Ave"
+        defaultValue="147 Addenbrooke's Hospital Ave"
         className="col-span-2"
       />
-      <Input aria-label="City" name="city" placeholder="City" defaultValue="Toronto" className="col-span-2" />
-      <Listbox aria-label="Region" name="region" placeholder="Region" defaultValue="Ontario">
+      <Input aria-label="City" name="city" placeholder="City" defaultValue="London" className="col-span-2" />
+      <Listbox aria-label="Region" name="region" placeholder="Region" defaultValue="Greater London">
         {country.regions.map((region) => (
           <ListboxOption key={region} value={region}>
             <ListboxLabel>{region}</ListboxLabel>

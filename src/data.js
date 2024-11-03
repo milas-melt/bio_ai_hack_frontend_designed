@@ -738,8 +738,6 @@ export async function getEvents() {
       pageViews: '24,300',
       pageViewsChange: '-0.75%',
       status: 'On Sale',
-      imgUrl: '/events/bear-hug.jpg',
-      thumbUrl: '/events/bear-hug-thumb.jpg',
     },
     {
       id: 1001,
@@ -756,8 +754,6 @@ export async function getEvents() {
       pageViews: '57,544',
       pageViewsChange: '-2.5%',
       status: 'On Sale',
-      imgUrl: '/events/six-fingers.jpg',
-      thumbUrl: '/events/six-fingers-thumb.jpg',
     },
     {
       id: 1002,
@@ -774,8 +770,6 @@ export async function getEvents() {
       pageViews: '122,122',
       pageViewsChange: '-8.0%',
       status: 'Closed',
-      imgUrl: '/events/we-all-look-the-same.jpg',
-      thumbUrl: '/events/we-all-look-the-same-thumb.jpg',
     },
     {
       id: 1003,
@@ -792,14 +786,18 @@ export async function getEvents() {
       pageViews: '9,000',
       pageViewsChange: '-0.15%',
       status: 'On Sale',
-      imgUrl: '/events/viking-people.jpg',
-      thumbUrl: '/events/viking-people-thumb.jpg',
     },
   ]
 }
 
 export function getCountries() {
   return [
+    {
+      name: 'United Kingdom',
+      code: 'GB',
+      flagUrl: '/flags/gb.svg',
+      regions: ['England', 'Scotland', 'Wales', 'Northern Ireland'],
+    },
     {
       name: 'Canada',
       code: 'CA',

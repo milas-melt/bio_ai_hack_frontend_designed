@@ -93,8 +93,8 @@ export function ApplicationLayout({ events, children }) {
           <SidebarHeader>
             <Dropdown>
               <DropdownButton as={SidebarItem}>
-                <Avatar src="/teams/catalyst.svg" />
-                <SidebarLabel>Catalyst</SidebarLabel>
+                <Avatar slot="icon" initials="AB" className="bg-purple-500 text-white" />
+                <SidebarLabel>Addenbrooke's Hospital</SidebarLabel>
                 <ChevronDownIcon />
               </DropdownButton>
               <DropdownMenu className="min-w-80 lg:min-w-64" anchor="bottom start">
@@ -104,12 +104,12 @@ export function ApplicationLayout({ events, children }) {
                 </DropdownItem>
                 <DropdownDivider />
                 <DropdownItem href="#">
-                  <Avatar slot="icon" src="/teams/catalyst.svg" />
-                  <DropdownLabel>Catalyst</DropdownLabel>
+                  <Avatar slot="icon" initials="AB" className="bg-purple-500 text-white" />
+                  <DropdownLabel>Addenbrooke's Hospital</DropdownLabel>
                 </DropdownItem>
                 <DropdownItem href="#">
-                  <Avatar slot="icon" initials="BE" className="bg-purple-500 text-white" />
-                  <DropdownLabel>Big Events</DropdownLabel>
+                  <Avatar slot="icon" initials="RL" className="bg-purple-500 text-white" />
+                  <DropdownLabel>Royal London Hospital</DropdownLabel>
                 </DropdownItem>
                 <DropdownDivider />
                 <DropdownItem href="#">
