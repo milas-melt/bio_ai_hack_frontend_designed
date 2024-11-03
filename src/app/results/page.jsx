@@ -18,6 +18,20 @@ export default function Results() {
     isComplete: false
   });
 
+  // Add this function to determine the class based on risk level
+const getRiskLevelClass = (riskLevel) => {
+  switch (riskLevel) {
+    case 'low':
+      return 'bg-green-500';
+    case 'medium':
+      return 'bg-yellow-500';
+    case 'high':
+      return 'bg-red-500';
+    default:
+      return 'bg-gray-500'; // Fallback for unknown risk levels
+  }
+};
+
   useEffect(() => {
     let eventSource = null;
     const formData = JSON.parse(localStorage.getItem('patientFormData'));
@@ -122,15 +136,28 @@ export default function Results() {
     value: value // Convert to percentage
   }));
 
+  console.log(sideEffectData)
+
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="max-w-7xl mx-auto p-6">
         {/* Header Section */}
-        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+        <div className="bg-white rounded-lg shadow-md p-6 mb-8 relative">
+        <div className="flex justify-between items-start">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">Patient Risk Analysis</h1>
-          <div className="bg-blue-100 border-l-4 border-blue-500 p-4">
-            <p className="text-sm text-blue-700">{summary}</p>
+          
+          {/* Risk Level Tab */}
+          <div className={`
+            absolute top-0 right-4 px-4 py-2 rounded-b-lg font-medium text-sm
+            ${getRiskLevelClass('low')}
+          `}>
+            Low Risk
           </div>
+        </div>
+
+        <div className="bg-blue-100 border-l-4 border-blue-500 p-4">
+          <p className="text-sm text-blue-700">{summary}</p>
+        </div>
         </div>
 
         {/* Patient Information Grid */}
