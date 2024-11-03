@@ -69,12 +69,6 @@ export default function FormComponent() {
   }
 
 
-const targetDrugs = [
-  { value: "ozempic", label: "OZEMPIC" },
-  { value: "actrema", label: "ACTREMA" },
-  { value: "metmorfin", label: "METMORFIN" },
-  // Add more drugs as needed
-]
 
   return (
     <div className="min-h-screen text-gray-100 flex items-center justify-center p-4">
@@ -138,19 +132,17 @@ const targetDrugs = [
             Target Drug
           </label>
           <select
-            id="targetDrug"
-            name="targetDrug"
+            id="target_drug"
+            name="target_drug"
             value={formData.target_drug}
             onChange={handleChange}
             required
             className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2.5 text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
           >
             <option value="">Select</option>
-            {targetDrugs.map((drug) => (
-              <option key={drug.value} value={drug.value}>
-                {drug.label}
-              </option>
-            ))}
+            <option value="OZEMPIC">OZEMPIC</option>
+            <option value="ARCTEMA">ARCTEMA</option>
+            <option value="METMORFIN">METMORFIN</option>
           </select>
         </div>
 

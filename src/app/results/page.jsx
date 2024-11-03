@@ -119,7 +119,7 @@ export default function Results() {
   // Process side effect data
   const sideEffectData = bestIntersection.data.map(([label, value]) => ({
     label,
-    value: value * 100 // Convert to percentage
+    value: value // Convert to percentage
   }));
 
   return (
@@ -221,7 +221,7 @@ export default function Results() {
         </div>
 
         {/* Advanced Diagnostic Section */}
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
+        {/* <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
           <h2 className="text-lg font-semibold text-gray-900 mb-6">Advanced Analysis</h2>
           <div className="mb-4">
             <p className="text-sm text-gray-600 mb-4">
@@ -233,7 +233,7 @@ export default function Results() {
             mostCommon={mostCommon} 
             attributeOptions={attributeOptions}
           />
-        </div>
+        </div> */}
 
 
         {/* Actionable Insights Grid */}
