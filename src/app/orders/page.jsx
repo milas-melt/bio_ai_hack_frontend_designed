@@ -13,8 +13,8 @@ export default async function Orders() {
   return (
     <>
       <div className="flex items-end justify-between gap-4">
-        <Heading>Orders</Heading>
-        <Button className="-my-0.5">Create order</Button>
+        <Heading>Cases</Heading>
+        <Button className="-my-0.5">Create case</Button>
       </div>
       <Table className="mt-8 [--gutter:theme(spacing.6)] lg:[--gutter:theme(spacing.10)]">
         <TableHead>
