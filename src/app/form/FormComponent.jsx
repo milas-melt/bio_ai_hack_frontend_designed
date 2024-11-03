@@ -70,9 +70,9 @@ export default function FormComponent() {
 
 
 const targetDrugs = [
-  { value: "drug1", label: "Drug 1" },
-  { value: "drug2", label: "Drug 2" },
-  { value: "drug3", label: "Drug 3" },
+  { value: "ozempic", label: "OZEMPIC" },
+  { value: "actrema", label: "ACTREMA" },
+  { value: "metmorfin", label: "METMORFIN" },
   // Add more drugs as needed
 ]
 
