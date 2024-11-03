@@ -6,6 +6,7 @@ function SideEffectBarChart({ title, data, barColor }) {
     <div className="mb-8">
       <Subheading>{title}</Subheading>
       <div className="space-y-4">
+        {console.log('data', data)}
         {data.map((prob, index) => (
           <div key={index}>
             <div className="mb-1 flex justify-between">
