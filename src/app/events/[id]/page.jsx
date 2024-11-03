@@ -1,5 +1,3 @@
-import { Stat } from '@/app/page'
-import { Badge } from '@/components/badge'
 import { Button } from '@/components/button'
 import { Heading, Subheading } from '@/components/heading'
 import { Link } from '@/components/link'
@@ -29,52 +27,36 @@ export default async function Event({ params }) {
       <div className="max-lg:hidden">
         <Link href="/events" className="inline-flex items-center gap-2 text-sm/6 text-zinc-500 dark:text-zinc-400">
           <ChevronLeftIcon className="size-4 fill-zinc-400 dark:fill-zinc-500" />
-          Events
+          Medications Under Analysis
         </Link>
       </div>
-      <div className="mt-4 flex flex-wrap items-end justify-between gap-4">
-        <div className="flex flex-wrap items-center gap-6">
-          <div>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-              <Heading>{event.name}</Heading>
-              <Badge color={event.status === 'On Sale' ? 'lime' : 'zinc'}>{event.status}</Badge>
-            </div>
-            <div className="mt-2 text-sm/6 text-zinc-500">
-              {event.date} at {event.time} <span aria-hidden="true">·</span> {event.location}
-            </div>
+      <div className="mt-4 flex items-center justify-between gap-4">
+        <div className="flex flex-col">
+          <div className="flex items-center gap-4">
+            <Heading>{event.name}</Heading>
           </div>
+          <div className="mt-2 text-sm text-zinc-500">{event.summary}</div>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-2">
           <Button outline>Edit</Button>
           <Button>View</Button>
         </div>
       </div>
-      <div className="mt-8 grid gap-8 sm:grid-cols-3">
-        <Stat title="Total revenue" value={event.totalRevenue} change={event.totalRevenueChange} />
-        <Stat
-          title="Tickets sold"
-          value={`${event.ticketsSold}/${event.ticketsAvailable}`}
-          change={event.ticketsSoldChange}
-        />
-        <Stat title="Pageviews" value={event.pageViews} change={event.pageViewsChange} />
-      </div>
+
+      <div className="mt-8 grid gap-8 sm:grid-cols-3"></div>
       <Subheading className="mt-12">Recent orders</Subheading>
       <Table className="mt-4 [--gutter:theme(spacing.6)] lg:[--gutter:theme(spacing.10)]">
         <TableHead>
           <TableRow>
             <TableHeader>Order number</TableHeader>
-            <TableHeader>Purchase date</TableHeader>
             <TableHeader>Patient</TableHeader>
-            <TableHeader className="text-right">Amount</TableHeader>
           </TableRow>
         </TableHead>
         <TableBody>
           {orders.map((order) => (
             <TableRow key={order.id} href={order.url} title={`Order #${order.id}`}>
               <TableCell>{order.id}</TableCell>
-              <TableCell className="text-zinc-500">{order.date}</TableCell>
               <TableCell>{order.patient.name}</TableCell>
-              <TableCell className="text-right">US{order.amount.usd}</TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -22,30 +22,44 @@ import {
   SidebarSpacer,
 } from '@/components/sidebar'
 import { SidebarLayout } from '@/components/sidebar-layout'
-
 import {
   ArrowRightStartOnRectangleIcon,
-  ChevronDownIcon,
-  ChevronUpIcon,
-  Cog8ToothIcon,
-  LightBulbIcon,
-  PlusIcon,
-  ShieldCheckIcon,
-  UserCircleIcon,
-} from '@heroicons/react/16/solid'
-import {
   BeakerIcon,
   ChartBarIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
   Cog6ToothIcon,
+  Cog8ToothIcon,
   HomeIcon,
+  LightBulbIcon,
+  PlusIcon,
   QuestionMarkCircleIcon,
+  ShieldCheckIcon,
   SparklesIcon,
   Square2StackIcon,
   TicketIcon,
+  UserCircleIcon,
 } from '@heroicons/react/20/solid'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
-function AccountDropdownMenu({ anchor }) {
+function AccountDropdownMenu({ anchor, onSignOut, onProfileChange }) {
+  const handleSignOutClick = () => {
+    onSignOut()
+    const selectedProfile = prompt('Please select a profile: admin or user')
+    if (selectedProfile === 'admin' || selectedProfile === 'user') {
+      onProfileChange(selectedProfile)
+      localStorage.setItem('profile', selectedProfile)
+    }
+  }
+
+  const handleProfileChange = () => {
+    const selectedProfile = prompt('Please select a profile: admin or user')
+    if (selectedProfile === 'admin' || selectedProfile === 'user') {
+      onProfileChange(selectedProfile)
+    }
+  }
+
   return (
     <DropdownMenu className="min-w-64" anchor={anchor}>
       <DropdownItem href="#">
@@ -62,7 +76,11 @@ function AccountDropdownMenu({ anchor }) {
         <DropdownLabel>Share feedback</DropdownLabel>
       </DropdownItem>
       <DropdownDivider />
-      <DropdownItem href="#">
+      <DropdownItem onClick={handleProfileChange}>
+        <DropdownLabel>Change Profile</DropdownLabel>
+      </DropdownItem>
+      <DropdownDivider />
+      <DropdownItem onClick={handleSignOutClick}>
         <ArrowRightStartOnRectangleIcon />
         <DropdownLabel>Sign out</DropdownLabel>
       </DropdownItem>
@@ -71,7 +89,33 @@ function AccountDropdownMenu({ anchor }) {
 }
 
 export function ApplicationLayout({ events, children }) {
-  let pathname = usePathname()
+  const [profile, setProfile] = useState(null)
+  const pathname = usePathname()
+  const router = useRouter()
+
+  const handleSignOut = () => {
+    localStorage.removeItem('profile')
+    setProfile(null)
+  }
+
+  const handleProfileChange = (newProfile) => {
+    setProfile(newProfile)
+    localStorage.setItem('profile', newProfile)
+    router.push('/form')
+  }
+
+  useEffect(() => {
+    const savedProfile = localStorage.getItem('profile')
+    if (!savedProfile) {
+      const selectedProfile = prompt('Please select a profile: admin or user')
+      if (selectedProfile === 'admin' || selectedProfile === 'user') {
+        setProfile(selectedProfile)
+        localStorage.setItem('profile', selectedProfile)
+      }
+    } else {
+      setProfile(savedProfile)
+    }
+  }, [])
 
   return (
     <SidebarLayout
@@ -83,7 +127,11 @@ export function ApplicationLayout({ events, children }) {
               <DropdownButton as={NavbarItem}>
                 <Avatar src="/users/erica.jpg" square />
               </DropdownButton>
-              <AccountDropdownMenu anchor="bottom end" />
+              <AccountDropdownMenu
+                anchor="bottom end"
+                onSignOut={handleSignOut}
+                onProfileChange={handleProfileChange}
+              />
             </Dropdown>
           </NavbarSection>
         </Navbar>
@@ -122,42 +170,46 @@ export function ApplicationLayout({ events, children }) {
 
           <SidebarBody>
             <SidebarSection>
-              <SidebarItem href="/" current={pathname === '/'}>
-                <HomeIcon />
-                <SidebarLabel>Home</SidebarLabel>
-              </SidebarItem>
-              <SidebarItem href="/events" current={pathname.startsWith('/events')}>
-                <Square2StackIcon />
-                <SidebarLabel>Medications Under Analysis</SidebarLabel>
-              </SidebarItem>
-              <SidebarItem href="/orders" current={pathname.startsWith('/orders')}>
-                <TicketIcon />
-                <SidebarLabel>Cases</SidebarLabel>
-              </SidebarItem>
-              <SidebarItem href="/settings" current={pathname.startsWith('/settings')}>
-                <Cog6ToothIcon />
-                <SidebarLabel>Settings</SidebarLabel>
-              </SidebarItem>
-
+              {profile === 'admin' && (
+                <>
+                  <SidebarItem href="/" current={pathname === '/'}>
+                    <HomeIcon />
+                    <SidebarLabel>Home</SidebarLabel>
+                  </SidebarItem>
+                  <SidebarItem href="/events" current={pathname.startsWith('/events')}>
+                    <Square2StackIcon />
+                    <SidebarLabel>Medications Under Analysis</SidebarLabel>
+                  </SidebarItem>
+                  <SidebarItem href="/orders" current={pathname.startsWith('/orders')}>
+                    <TicketIcon />
+                    <SidebarLabel>Cases</SidebarLabel>
+                  </SidebarItem>
+                  <SidebarItem href="/settings" current={pathname.startsWith('/settings')}>
+                    <Cog6ToothIcon />
+                    <SidebarLabel>Settings</SidebarLabel>
+                  </SidebarItem>
+                </>
+              )}
               <SidebarItem href="/form" current={pathname.startsWith('/form')}>
                 <BeakerIcon />
                 <SidebarLabel>Form</SidebarLabel>
               </SidebarItem>
-
               <SidebarItem href="/results" current={pathname.startsWith('/results')}>
                 <ChartBarIcon />
                 <SidebarLabel>Results</SidebarLabel>
               </SidebarItem>
             </SidebarSection>
 
-            <SidebarSection className="max-lg:hidden">
-              <SidebarHeading>Medications Under Analysis</SidebarHeading>
-              {events.map((event) => (
-                <SidebarItem key={event.id} href={event.url}>
-                  {event.name}
-                </SidebarItem>
-              ))}
-            </SidebarSection>
+            {profile === 'admin' && (
+              <SidebarSection className="max-lg:hidden">
+                <SidebarHeading>Medications Under Analysis</SidebarHeading>
+                {events.map((event) => (
+                  <SidebarItem key={event.id} href={event.url}>
+                    {event.name}
+                  </SidebarItem>
+                ))}
+              </SidebarSection>
+            )}
 
             <SidebarSpacer />
 
@@ -187,7 +239,7 @@ export function ApplicationLayout({ events, children }) {
                 </span>
                 <ChevronUpIcon />
               </DropdownButton>
-              <AccountDropdownMenu anchor="top start" />
+              <AccountDropdownMenu anchor="top start" onSignOut={handleSignOut} onProfileChange={handleProfileChange} />
             </Dropdown>
           </SidebarFooter>
         </Sidebar>

@@ -49,12 +49,7 @@ export default async function Events() {
                     <div className="text-base/6 font-semibold">
                       <Link href={event.url}>{event.name}</Link>
                     </div>
-                    <div className="text-xs/6 text-zinc-500">
-                      {event.date} at {event.time} <span aria-hidden="true">·</span> {event.location}
-                    </div>
-                    <div className="text-xs/6 text-zinc-600">
-                      {event.ticketsSold}/{event.ticketsAvailable} tickets sold
-                    </div>
+                    <div className="text-xs/6 text-zinc-500">{event.summary}</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">

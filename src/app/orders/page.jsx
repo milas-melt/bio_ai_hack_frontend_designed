@@ -23,7 +23,6 @@ export default async function Orders() {
             <TableHeader>Purchase date</TableHeader>
             <TableHeader>Patient</TableHeader>
             <TableHeader>Event</TableHeader>
-            <TableHeader className="text-right">Amount</TableHeader>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -37,7 +36,6 @@ export default async function Orders() {
                   <span>{order.event.name}</span>
                 </div>
               </TableCell>
-              <TableCell className="text-right">US{order.amount.usd}</TableCell>
             </TableRow>
           ))}
         </TableBody>
