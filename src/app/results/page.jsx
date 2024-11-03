@@ -1,32 +1,105 @@
+'use client'
 import AdvancedDiagnostic from '@/components/AdvancedDiagnostic'
 import PatientInformation from '@/components/PatientInformation'
 import SideEffectBarChart from '@/components/SideEffectBarChart'
 import { Divider } from '@/components/divider'
 import { Heading } from '@/components/heading'
+import { useState, useEffect} from 'react'
+import { useRouter } from 'next/navigation'
+import ProgressOverlay from './progress_overlay'
 
-export default async function Results({ searchParams }) {
-  const { age, weight, sex, ethnicity } = searchParams
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://127.0.0.1:5050'
 
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://127.0.0.1:5050'
 
-  const queryParams = new URLSearchParams({
-    age,
-    weight,
-    sex,
-    ethnicity,
+export default function Results() {
+  const router = useRouter()
+  const [dashboardData, setDashboardData] = useState(null)
+  const [isProcessing, setIsProcessing] = useState(true)
+  const [progress, setProgress] = useState({
+    progress: 0,
+    status: 'Starting analysis...',
+    details: '',
+    isComplete: false
   })
 
-  try {
-    const res = await fetch(`${API_BASE_URL}/dashboard?${queryParams.toString()}`, {
-      method: 'GET',
-      cache: 'no-store', // Ensure fresh data on each request
-    })
-
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`)
+  useEffect(() => {
+    let eventSource = null
+    const formData = JSON.parse(localStorage.getItem('patientFormData'))
+    if (!formData) {
+      router.push('/')
+      return
     }
 
-    const dashboardData = await res.json()
+    const fetchData = async () => {
+      try {
+        setProgress({
+          progress: 0,
+          status: 'Starting analysis...',
+          details: '',
+          isComplete: false
+        })
+        // Start the progress event listener
+        eventSource = new EventSource(`${API_BASE_URL}/dashboard/progress`)
+        
+        eventSource.onmessage = (event) => {
+          const data = JSON.parse(event.data)
+          console.log(data)
+          setProgress(data)
+          
+          if (data.isComplete) {
+            eventSource.close()
+          }
+        }
+
+        eventSource.onerror = (error) => {
+          console.error('EventSource failed:', error)
+          eventSource.close()
+          setIsProcessing(false)
+        }
+        // Start the main processing request
+        const response = await fetch(`${API_BASE_URL}/dashboard`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        })
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+
+        const responseData = await response.json()
+        setDashboardData(responseData)
+        setIsProcessing(false)
+
+      } catch (error) {
+        console.error('Error:', error)
+        setIsProcessing(false)
+      }
+    }
+
+    fetchData()
+
+    // Cleanup function
+    return () => {
+      if (eventSource) {
+        eventSource.close()
+        eventSource = null
+      }
+    }
+  }, [router])
+
+  if (isProcessing || !dashboardData) {
+    return (
+      <ProgressOverlay 
+        progress={progress.progress}
+        status={progress.status}
+        details={progress.details}
+      />
+    )
+  }
+
 
     const { patient_info, probabilities } = dashboardData
 
@@ -73,7 +146,4 @@ export default async function Results({ searchParams }) {
         {/* <ActionableInsights data={actionable_insights} /> */}
       </div>
     )
-  } catch (error) {
-    return <div>Error: {error.message}</div>
-  }
 }
