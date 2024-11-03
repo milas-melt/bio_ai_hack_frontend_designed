@@ -17,7 +17,7 @@ export function RefundOrder({ amount, ...props }) {
       <Dialog open={isOpen} onClose={setIsOpen}>
         <DialogTitle>Refund payment</DialogTitle>
         <DialogDescription>
-          The refund will be reflected in the customer’s bank account 2 to 3 business days after processing.
+          The refund will be reflected in the patient’s bank account 2 to 3 business days after processing.
         </DialogDescription>
         <DialogBody>
           <FieldGroup>
@@ -33,14 +33,14 @@ export function RefundOrder({ amount, ...props }) {
                 </option>
                 <option value="duplicate">Duplicate</option>
                 <option value="fraudulent">Fraudulent</option>
-                <option value="requested_by_customer">Requested by customer</option>
+                <option value="requested_by_patient">Requested by patient</option>
                 <option value="other">Other</option>
               </Select>
             </Field>
             <CheckboxField>
               <Checkbox name="notify" />
-              <Label>Notify customer</Label>
-              <Description>An email notification will be sent to this customer.</Description>
+              <Label>Notify patient</Label>
+              <Description>An email notification will be sent to this patient.</Description>
             </CheckboxField>
           </FieldGroup>
         </DialogBody>

@@ -34,6 +34,8 @@ import {
   UserCircleIcon,
 } from '@heroicons/react/16/solid'
 import {
+  BeakerIcon,
+  ChartBarIcon,
   Cog6ToothIcon,
   HomeIcon,
   QuestionMarkCircleIcon,
@@ -135,6 +137,16 @@ export function ApplicationLayout({ events, children }) {
               <SidebarItem href="/settings" current={pathname.startsWith('/settings')}>
                 <Cog6ToothIcon />
                 <SidebarLabel>Settings</SidebarLabel>
+              </SidebarItem>
+
+              <SidebarItem href="/form" current={pathname.startsWith('/form')}>
+                <BeakerIcon />
+                <SidebarLabel>Form</SidebarLabel>
+              </SidebarItem>
+
+              <SidebarItem href="/results" current={pathname.startsWith('/results')}>
+                <ChartBarIcon />
+                <SidebarLabel>Results</SidebarLabel>
               </SidebarItem>
             </SidebarSection>
 
