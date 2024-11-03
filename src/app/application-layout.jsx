@@ -151,7 +151,7 @@ export function ApplicationLayout({ events, children }) {
             </SidebarSection>
 
             <SidebarSection className="max-lg:hidden">
-              <SidebarHeading>Drugs of interest</SidebarHeading>
+              <SidebarHeading>Medications Under Analysis</SidebarHeading>
               {events.map((event) => (
                 <SidebarItem key={event.id} href={event.url}>
                   {event.name}

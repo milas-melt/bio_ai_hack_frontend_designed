@@ -1,4 +1,3 @@
-import { Badge } from '@/components/badge'
 import { Button } from '@/components/button'
 import { Divider } from '@/components/divider'
 import { Dropdown, DropdownButton, DropdownItem, DropdownMenu } from '@/components/dropdown'
@@ -10,7 +9,7 @@ import { getEvents } from '@/data'
 import { EllipsisVerticalIcon, MagnifyingGlassIcon } from '@heroicons/react/16/solid'
 
 export const metadata = {
-  title: 'Drugs',
+  title: 'Medications Under Analysis',
 }
 
 export default async function Events() {
@@ -20,7 +19,7 @@ export default async function Events() {
     <>
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="max-sm:w-full sm:flex-1">
-          <Heading>Drugs of Interest</Heading>
+          <Heading>Medications Under Analysis</Heading>
           <div className="mt-4 flex max-w-xl gap-4">
             <div className="flex-1">
               <InputGroup>
@@ -37,7 +36,7 @@ export default async function Events() {
             </div>
           </div>
         </div>
-        <Button>Add drug of interest</Button>
+        <Button>Add Medications Under Analysis</Button>
       </div>
       <ul className="mt-10">
         {events.map((event, index) => (
@@ -59,9 +58,9 @@ export default async function Events() {
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <Badge className="max-sm:hidden" color={event.status === 'On Sale' ? 'lime' : 'zinc'}>
+                  {/* <Badge className="max-sm:hidden" color={event.status === 'On Sale' ? 'lime' : 'zinc'}>
                     {event.status}
-                  </Badge>
+                  </Badge> */}
                   <Dropdown>
                     <DropdownButton plain aria-label="More options">
                       <EllipsisVerticalIcon />

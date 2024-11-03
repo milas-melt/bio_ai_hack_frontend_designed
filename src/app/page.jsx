@@ -53,7 +53,7 @@ export default async function Home() {
             <TableHeader>Case Number</TableHeader>
             <TableHeader>Date</TableHeader>
             <TableHeader>Patient</TableHeader>
-            <TableHeader>Drug of Interest</TableHeader>
+            <TableHeader>Medications Under Analysis</TableHeader>
           </TableRow>
         </TableHead>
         <TableBody>
