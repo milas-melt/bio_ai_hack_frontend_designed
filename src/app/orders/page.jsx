@@ -1,4 +1,3 @@
-import { Avatar } from '@/components/avatar'
 import { Button } from '@/components/button'
 import { Heading } from '@/components/heading'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/table'
@@ -35,7 +34,6 @@ export default async function Orders() {
               <TableCell>{order.patient.name}</TableCell>
               <TableCell>
                 <div className="flex items-center gap-2">
-                  <Avatar src={order.event.thumbUrl} className="size-6" />
                   <span>{order.event.name}</span>
                 </div>
               </TableCell>

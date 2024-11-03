@@ -1,4 +1,3 @@
-import { Avatar } from '@/components/avatar'
 import { Badge } from '@/components/badge'
 import { Divider } from '@/components/divider'
 import { Heading, Subheading } from '@/components/heading'
@@ -62,7 +61,6 @@ export default async function Home() {
               <TableCell>{order.patient.name}</TableCell>
               <TableCell>
                 <div className="flex items-center gap-2">
-                  <Avatar src={order.event.thumbUrl} className="size-6" />
                   <span>{order.event.name}</span>
                 </div>
               </TableCell>

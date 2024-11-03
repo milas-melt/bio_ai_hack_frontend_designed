@@ -1,4 +1,3 @@
-import { Avatar } from '@/components/avatar'
 import { Badge } from '@/components/badge'
 import { Button } from '@/components/button'
 import { DescriptionDetails, DescriptionList, DescriptionTerm } from '@/components/description-list'
@@ -75,7 +74,6 @@ export default async function Order({ params }) {
           <DescriptionTerm>Event</DescriptionTerm>
           <DescriptionDetails>
             <Link href={order.event.url} className="flex items-center gap-2">
-              <Avatar src={order.event.thumbUrl} className="size-6" />
               <span>{order.event.name}</span>
             </Link>
           </DescriptionDetails>
